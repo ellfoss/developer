@@ -1,0 +1,15 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^(.*)$ errors/error-404.html
+
+RewriteCond %{SCRIPT_FILENAME} ^(.*\.(php|html))$
+RewriteCond %{SCRIPT_FILENAME} !index.php
+
+RewriteRule ^(.*)$ errors/error-404.html
+
+RewriteCond %{SCRIPT_FILENAME} -d
+
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]

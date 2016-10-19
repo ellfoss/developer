@@ -7,6 +7,7 @@ var reload = browserSync.reload;
 var plumber = require('gulp-plumber');
 
 var paths = {
+	htaccess: './app/.htaccess',
 	php: './app/**/*.php',
 	pug: './app/**/*.pug',
 	styl: './app/**/*.styl',
@@ -66,6 +67,13 @@ gulp.task('php', function(){
 		.pipe(reload({stream:true}));
 });
 
+gulp.task('htaccess', function(){
+	return gulp.src(paths.htaccess)
+		.pipe(plumber())
+		.pipe(gulp.dest('./dist/'))
+		.pipe(reload({stream:true}));
+});
+
 gulp.task('browserSync', function(){
 	browserSync({
 		proxy: 'developer'
@@ -73,6 +81,7 @@ gulp.task('browserSync', function(){
 });
 
 gulp.task('watcher', function(){
+	gulp.watch(paths.htaccess, ['htaccess']);
 	gulp.watch(paths.php, ['php']);
 	gulp.watch(paths.pug, ['pug']);
 	gulp.watch(paths.styl, ['stylus']);
@@ -81,7 +90,7 @@ gulp.task('watcher', function(){
 	gulp.watch(paths.font, ['font']);
 });
 
-gulp.task('copy', ['php', 'script', 'img', 'font']);
+gulp.task('copy', ['htaccess', 'php', 'script', 'img', 'font']);
 
 gulp.task('build', ['copy', 'pug', 'stylus']);
 
