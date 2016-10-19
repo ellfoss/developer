@@ -1,8 +1,24 @@
 doctype html
-html
+html(lang='ru')
 	head
 		title Ошибка 404
 		meta(charset='utf-8')
 		meta(name='viewport' content='width=device-width,initial-scale=1.0')
-		script(src='http://code.jquery.com/jquery-1.10.2.js')
+		link(type='text/css' rel='stylesheet' href='/css/error.css')
+		script(type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.js')
+		script(type='text/javascript' src='/scripts/error.js')
 	body
+		.error
+			.head Ошибка
+			.letters
+				.anim 4
+				.anim 0
+				.anim 4
+				.anim !
+			.text.
+				Страница не найдена!
+			.message
+				='Вы будете перенаправлены на главную странцу через '
+				.number 10
+				=' сек.'
+			a.now(href='/') Хочу прямо сейчас!
