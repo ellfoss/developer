@@ -7,11 +7,15 @@ $(document).ready(function () {
 			$(this).addClass('active');
 			var width = $(window).width();
 			if (width > 600) {
-				if (menu == 'portfolio') {
-					width = $('.sheet[name="main"]').outerWidth();
-					$('.main .wrapper').css({left: -width});
-				} else {
-					$('.main .wrapper').css({left: 0});
+				var main_wrapper = $('.main .wrapper');
+				width = main_wrapper.outerWidth();
+				if (menu == 'portfolio') main_wrapper.css({left: -width});
+				else {
+					main_wrapper.css({left: 0});
+					var text_wrapper = $('.sheet-text-wrapper');
+					width = text_wrapper.outerWidth();
+					if (menu == 'contacts') text_wrapper.css({left: -width});
+					else text_wrapper.css({left: 0});
 				}
 			}
 		} else {
