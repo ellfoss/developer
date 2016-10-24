@@ -136,6 +136,10 @@ header
 				left 0
 				white-space nowrap
 				transition left 0.8s
+			.text-header
+				margin 10px
+				font-size 1.2rem
+				font-weight 700
 
 .resume
 	display inline-block
@@ -165,7 +169,7 @@ header
 		display inline-block
 		text-align left
 		& > *
-			padding 10px
+			padding 10px 0
 			text-align left
 	a
 		display inline-block
@@ -182,6 +186,7 @@ header
 
 	body
 		height auto
+		overflow auto
 
 	header
 		display block
@@ -200,13 +205,21 @@ header
 			display block
 			height auto
 			white-space normal
+			left 0 !important
 			.sheet
 				display block
 				height auto
 				.image
-					width 20%
-				.text
-					width 75%
+					display none
+				.sheet-text
+					width 100%
+					margin-left 0
+					.sheet-text-wrapper
+						white-space normal
+						left 0 !important
+
+	.contacts
+		text-align left
 
 @media (max-width: 400px)
 	header
@@ -215,10 +228,3 @@ header
 			.menu-item
 				display block
 				width 100%
-
-	.main
-		.sheet
-			.image
-				display none
-			.text
-				margin-left 0
