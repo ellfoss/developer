@@ -4,8 +4,31 @@ html(lang='ru')
 		title Кашников Денис | Веб-разработчик
 		meta(charset='utf-8')
 		meta(name='viewport' content='width=device-width,initial-scale=1.0')
+		link(rel="icon" href="favicon.ico")
 		link(type='text/css' rel='stylesheet' href='/css/style.css')
 		script(type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.js')
 		script(type='text/javascript' src='/scripts/main.js')
-	body.
-		My site
+	body
+		header
+			.name
+				a.image(href='https://vk.com/ellfoss' target='_blank')
+					img(src='/img/photo.jpg')
+				.text
+					.main-name Кашников Денис
+					.under-name Веб-разработчик
+			.menu
+				.menu-item.active(menu='resume') Резюме
+				.menu-item(menu='contacts') Контакты
+				.menu-item(menu='portfolio') Портфолио
+		.main
+			.wrapper
+				.sheet(name='main')
+					.image
+						img(src='img/tv.png')
+					.text
+						a#resume
+						| Text
+				.sheet(name='portfolio')
+					.portfolio Портфолио
+						a#portfolio
+

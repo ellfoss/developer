@@ -7,14 +7,164 @@
 	outline 0
 html
 	width 100%
+	min-width 300px
 	height 100%
-	background-color white
+	background-color #f4f4f4;
 body
 	width 100%
 	height 100%
 	overflow hidden
 	position relative
-	font-size 14px
-	background url(../img/bg.jpg) no-repeat center
-	background-size cover
-	background-attachment fixed
+	color #575757
+	font-family "Open Sans", sans-serif, Arial
+	font-size 16px
+header
+	display flex
+	justify-content space-between
+	align-items center
+	padding 20px
+	.name
+		.image
+			display inline-block
+			width 64px
+			height 64px
+			position relative
+			vertical-align middle
+			cursor pointer
+			img
+				width 100%
+				height 100%
+				position absolute
+				z-index 10
+				transition all 0.4s
+				&:hover
+					width 128px
+					height 128px
+		.text
+			display inline-block
+			vertical-align middle
+			margin-left 10px
+			.main-name
+				font-weight 700
+			.under-name
+				font-size 0.8em
+	.menu
+		height 1.4em
+		margin 20px 0
+		flex auto
+		color #3a494c
+		text-align center
+		.menu-item
+			display inline-block
+			min-width 20%
+			margin 10px 0
+			cursor pointer
+			transition font-size 0.4s
+			vertical-align middle
+			white-space nowrap
+			&::before
+			&::after
+				display inline-block
+				opacity 0
+				transition transform 0.6s, opacity 0.2s
+			&::before
+				content '['
+				margin-right 10px
+				transform translateX(20px)
+			&::after
+				content ']'
+				margin-left 10px
+				transform translateX(-20px)
+			&:hover
+			&.active
+				font-size 1.2em
+				&::before
+				&::after
+					opacity 1
+					transform translateX(0px)
+
+.main
+	width 100%
+	height calc(100% - 104px)
+	overflow hidden
+	.wrapper
+		display table
+		width 100%
+		height 100%
+		position relative
+		left 0
+		white-space nowrap
+		transition left 0.8s
+	.sheet
+		display inline-block
+		width 100%
+		height 100%
+		padding 10px
+		box-sizing border-box
+		overflow hidden
+		.image
+			display inline-block
+			width 40%
+			height 100%
+			vertical-align middle
+			text-align left
+			&::before
+				conent ''
+				display inline-block
+				width 0
+				height 100%
+				vertical-align middle
+			img
+				max-width 100%
+				height auto
+				vertical-align middle
+		.text
+			display inline-block
+			width 55%
+			margin-left 3%
+			vertical-align middle
+			overflow-y auto
+			overflow-x hidden
+
+@media (max-width: 600px)
+	html
+		height auto
+	body
+		height auto
+	header
+		display block
+		.menu
+			.menu-item
+				min-width 30%
+				&.active
+					font-size 1em
+					&::before
+					&::after
+						opacity 0
+	.main
+		height auto
+		.wrapper
+			display block
+			height auto
+			white-space normal
+			.sheet
+				display block
+				height auto
+				.image
+					width 20%
+				.text
+					width 75%
+
+@media (max-width: 400px)
+	header
+		.menu
+			height 3.6em
+			.menu-item
+				display block
+				width 100%
+	.main
+		.sheet
+			.image
+				display none
+			.text
+				margin-left 0
