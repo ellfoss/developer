@@ -22,12 +22,12 @@ html(lang='ru')
 				.menu-item(menu='portfolio') Портфолио
 		.main
 			.wrapper
-				.sheet(name='main')
+				.sheet.active(name='main')
 					.image
 						img(src='img/tv.png')
 					.sheet-text
 						.sheet-text-wrapper
-							.resume
+							.resume.view.active(name='resume')
 								a#resume
 								.resume-text
 									.text-header Резюме
@@ -56,7 +56,7 @@ html(lang='ru')
 											img(src='/img/github.png')
 											span GitHub
 
-							.contacts
+							.contacts.view(name='contacts')
 								a#contacts
 								.contacts-wrapper
 									.text-header Контакты
