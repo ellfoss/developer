@@ -7,11 +7,22 @@
  */
 
 define('DIRSEP', DIRECTORY_SEPARATOR);
-
-$site_path = dirname(dirname(__FILE__)) . DIRSEP;
+$path = str_replace('index.php', '', __FILE__);
 
 $error = file_get_contents('errors' . DIRSEP . 'error-404.html');
 $page = file_get_contents('main.html');
-$query = $_SERVER['QUERY_STRING'];
-if ($query != '') echo $error;
-else echo $page;
+$query = $_SERVER['REQUEST_URI'];
+if ($query != '' && $query != '/' && $query != '/index.php') {
+	$page = $error;
+	if (substr($query, 0, 11) == '/portfolio/') {
+		if (strlen($query) == 11) $page = file_get_contents('portfolio' . DIRSEP . 'portfolio.html');
+		else {
+			$dir = str_replace('/', '', substr($query, 11));
+			if (preg_match('/[a-z]+/', $dir)) {
+				$index = $path . DIRSEP . 'portfolio' . DIRSEP . $dir . DIRSEP . 'index.html';
+				if (file_exists($index)) $page = file_get_contents($index);
+			}
+		}
+	}
+}
+echo $page;

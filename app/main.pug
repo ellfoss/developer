@@ -5,9 +5,8 @@ html(lang='ru')
 		meta(charset='utf-8')
 		meta(name='viewport' content='width=device-width,initial-scale=1.0')
 		link(rel="icon" href="favicon.ico")
+		link(type='text/css' rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css")
 		link(type='text/css' rel='stylesheet' href='/css/style.css')
-		script(type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.js')
-		script(type='text/javascript' src='/scripts/main.js')
 	body
 		header
 			.name
@@ -32,14 +31,14 @@ html(lang='ru')
 								.resume-text
 									.text-header Резюме
 									p Приветствую!
-									p Я занимаюсь web-разработкой с 2011 года. Всё начиналось с любительских проектов "для себя", поэтому необходимые навыки росли очень медленно. С 2015 года я решил перевести своё увлечение из разряда хобби в источник дохода и активно взялся за самообучение. На данный момент у меня имеются следующие навыки:
+									p Я занимаюсь web-разработкой с 2011 года. Всё начиналось с любительских проектов "для себя", поэтому необходимые навыки росли очень медленно. С 2016 года я решил перевести своё увлечение из разряда хобби в источник дохода и активно взялся за самообучение. На данный момент у меня имеются следующие навыки:
 									ul
 										li
 											img(src='/img/html5.png')
-											span HTML5
+											span HTML5 (pug)
 										li
 											img(src='/img/css3.png')
-											span CSS3
+											span CSS3 (less, stylus)
 										li
 											img(src='/img/js.png')
 											span Javascript (+jQuery)
@@ -60,25 +59,31 @@ html(lang='ru')
 								a#contacts
 								.contacts-wrapper
 									.text-header Контакты
-									.vk
-										a(href='https://vk.com/ellfoss' target='_blank')
-											img(src="/img/vk.png")
-										.contact-text Кашников Денис
-									.e-mail
-										a(href='mailto:ellfoss43@gmail.com')
-											img(src="/img/gmail.png")
-										.contact-text ellfoss43@gmail.com
-									.skype
-										a(href='skype:ellfoss')
-											img(src="/img/skype.png")
-										.contact-text ellfoss
-									.github
-										a(href='https://github.com/ellfoss' target='_blank')
-											img(src="/img/github.png")
-										.contact-text ellfoss
+									.items
+										.vk
+											a(href='https://vk.com/ellfoss' target='_blank')
+												img(src="/img/vk.png")
+											.contact-text Кашников Денис
+										.e-mail
+											a(href='mailto:ellfoss43@gmail.com')
+												img(src="/img/gmail.png")
+											.contact-text ellfoss43@gmail.com
+										.skype
+											a(href='skype:ellfoss')
+												img(src="/img/skype.png")
+											.contact-text ellfoss
+										.github
+											a(href='https://github.com/ellfoss' target='_blank')
+												img(src="/img/github.png")
+											.contact-text ellfoss
 
 				.sheet(name='portfolio')
 					.portfolio
 						a#portfolio
-						| Портфолио
+						.text-header Портфолио
+						.portfolio_works
+						a.portfolio_other(href='/portfolio/') Остальные работы
 
+		script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+		script(type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js")
+		script(type='text/javascript' src='/scripts/main.js')

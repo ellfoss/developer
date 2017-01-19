@@ -86,6 +86,12 @@ header
 				&::after
 					opacity 1
 					transform translateX(0px)
+	&.center
+		text-align center
+		.name
+			margin 0 auto
+			font-size 20px
+			font-weight bold
 
 .main
 	width 100%
@@ -110,7 +116,7 @@ header
 		white-space normal
 		overflow hidden
 		opacity 0
-		transition left 0.8s, opacity 1.2s
+		transition all 0.8s
 		&[name="main"]
 			left -100%
 		&[name="portfolio"]
@@ -154,10 +160,6 @@ header
 				transition left 0.8s
 				overflow-x hidden
 				overflow-y auto
-			.text-header
-				margin 10px
-				font-size 1.2rem
-				font-weight 700
 		.view
 			display inline-block
 			width 100%
@@ -166,10 +168,18 @@ header
 			vertical-align top
 			white-space normal
 			opacity 0
-			transition left 0.8s, opacity 1.2s
+			transform scale(0.8)
+			transition all 0.8s
 			&.active
+				transform scale(1)
 				left 0
 				opacity 1
+
+.text-header
+	margin 10px
+	font-size 1.2rem
+	font-weight 700
+	text-align center
 
 .resume
 	left -100%
@@ -188,12 +198,14 @@ header
 
 .contacts
 	left 100%
+	text-align center
 	.contacts-wrapper
 		display inline-block
-		text-align left
-		& > *
-			padding 10px 0
+		.items
 			text-align left
+			& > *
+				padding 10px 0
+				text-align left
 	a
 		display inline-block
 		vertical-align middle
@@ -202,6 +214,52 @@ header
 		margin-left 10px
 		font-size 1.2rem
 		vertical-align middle
+
+.portfolio
+	text-align center
+
+.portfolio_works
+	min-height 100px
+
+.portfolio_other
+	display inline-block
+	margin 10px
+	text-decoration none
+	&:visited
+		color inherit
+
+.works
+	text-align center
+
+.work
+	display inline-block
+	margin 20px 20px 50px 20px
+	overflow hidden
+	transform scale(1)
+	opacity 1
+	transition transform 0.3s, opacity 0.3s
+	&:hover
+		.work__header
+			transform scale(1.5)
+			transition all 0.3s
+	&.minimize
+		transform scale(0.3)
+		opacity 0
+	&.hide
+		height 0
+
+.work__header
+	padding 10px 0
+	transform scale(1)
+
+.work__link
+	display inline-block
+	img
+		border-radius 8px
+
+.ui-tooltip
+	max-width 200px
+	font-size 12px
 
 @media (max-width: 600px)
 	html
@@ -246,6 +304,8 @@ header
 
 	.contacts
 		text-align left
+		.contacts-wrapper
+			display block
 
 @media (max-width: 400px)
 	header

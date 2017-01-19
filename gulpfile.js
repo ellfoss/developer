@@ -14,8 +14,16 @@ var paths = {
 	script: './app/**/*.js',
 	jpg: './app/**/*.jpg',
 	png: './app/**/*.png',
-	font: './app/fonts/*.*'
+	json: './app/**/*.json',
+	font: './app/**/fonts/*.*'
 };
+
+gulp.task('json', function(){
+	return gulp.src(paths.json)
+		.pipe(plumber())
+		.pipe(gulp.dest('./dist/'))
+		.pipe(reload({stream:true}));
+});
 
 gulp.task('pug', function(){
 	return gulp.src(paths.pug)
@@ -90,7 +98,7 @@ gulp.task('watcher', function(){
 	gulp.watch(paths.font, ['font']);
 });
 
-gulp.task('copy', ['htaccess', 'php', 'script', 'img', 'font']);
+gulp.task('copy', ['htaccess', 'php', 'script', 'img', 'font', 'json']);
 
 gulp.task('build', ['copy', 'pug', 'stylus']);
 

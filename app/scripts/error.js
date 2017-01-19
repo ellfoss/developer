@@ -1,5 +1,5 @@
 var curLetter = -1;
-var curNumber = 10;
+var curNumber = 16;
 
 $(document).ready(function () {
 	setTimeout(animate404, 1400);

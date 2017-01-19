@@ -5,11 +5,10 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 
 RewriteRule ^(.*)$ errors/error-404.html
 
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
 RewriteCond %{SCRIPT_FILENAME} ^(.*\.(php|html))$
 RewriteCond %{SCRIPT_FILENAME} !index.php
+RewriteCond %{SCRIPT_FILENAME} !errors/error-404.html
+RewriteCond %{SCRIPT_FILENAME} !portfolio/works.php
 
-RewriteRule ^(.*)$ errors/error-404.html
-
-RewriteCond %{SCRIPT_FILENAME} -d
-
-RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+RewriteRule ^(.*)$ index.php [L]
