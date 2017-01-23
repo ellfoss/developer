@@ -17,10 +17,16 @@ if ($query != '' && $query != '/' && $query != '/index.php') {
 	if (substr($query, 0, 11) == '/portfolio/') {
 		if (strlen($query) == 11) $page = file_get_contents('portfolio' . DIRSEP . 'portfolio.html');
 		else {
-			$dir = str_replace('/', '', substr($query, 11));
+			$file = substr($query, 11);
+			$slash = strpos($file, '/');
+			$dir = substr($file, 0, $slash);
 			if (preg_match('/[a-z]+/', $dir)) {
-				$index = $path . DIRSEP . 'portfolio' . DIRSEP . $dir . DIRSEP . 'index.html';
-				if (file_exists($index)) $page = file_get_contents($index);
+				$file = substr($file, $slash + 1);
+				if ($file == '') $file = 'index.html';
+				if (preg_match('/[a-z]+\.html/', $file)) {
+					$file = $path . 'portfolio' . DIRSEP . $dir . DIRSEP . $file;
+					if (file_exists($file)) $page = file_get_contents($file);
+				}
 			}
 		}
 	}
