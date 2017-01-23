@@ -17,6 +17,8 @@ $(document).ready(function () {
 	$(window).resize(function () {
 		resize();
 	});
+
+	checkPortfolio();
 });
 
 function clickMenu(m) {
@@ -25,24 +27,40 @@ function clickMenu(m) {
 	$('.menu-item[menu="' + menu + '"]').addClass('active');
 	if (menu == 'portfolio') {
 		$('.sheet[name="portfolio"]').addClass('active');
+		checkPortfolio();
+	}
+	else {
+		$('.sheet[name="main"]').addClass('active');
+		$('.view[name="' + menu + '"]').addClass('active');
+	}
+}
+
+function checkPortfolio() {
+	var opacity = $('.sheet[name="portfolio"]').css('opacity');
+	if ($('.sheet[name="portfolio"]').hasClass('active')) opacity = '1';
+	if (opacity != '0') {
 		if (works.length == 0) {
 			$.ajax({
 				url: '/portfolio/works.php',
-				type: 'post',
+				type: 'get',
 				dataType: 'json',
-				options: {type: 'mainPage'},
+				options: {'page': 'mainPage'},
 				success: function (answer) {
+					var items = 0;
 					for (var item in answer) {
-						var work = $('<div class="work minimize"></div>').appendTo($('.portfolio_works'));
-						var workHeader = $('<div class="work__header">' + answer[item].name + '</div>').appendTo(work);
-						var workLink = $('<a href="' + answer[item].link + '" class="work__link" title="' + answer[item].description + '"><img src="' + answer[item].image + '"></a>').appendTo(work);
-						workLink.tooltip({
-							position: {
-								my: 'center top',
-								at: 'center bottom'
-							}
-						});
-						works.push(work);
+						if (items < 3) {
+							var work = $('<div class="work minimize"></div>').appendTo($('.portfolio_works'));
+							$('<div class="work__header">' + answer[item].name + '</div>').appendTo(work);
+							var workLink = $('<a href="' + answer[item].link + '" class="work__link" title="' + answer[item].description + '"><img src="' + answer[item].image + '"></a>').appendTo(work);
+							workLink.tooltip({
+								position: {
+									my: 'center top',
+									at: 'center bottom'
+								}
+							});
+							works.push(work);
+							items++;
+						}
 					}
 					setTimeout(function () {
 						setInterval(function () {
@@ -55,10 +73,6 @@ function clickMenu(m) {
 				}
 			});
 		}
-	}
-	else {
-		$('.sheet[name="main"]').addClass('active');
-		$('.view[name="' + menu + '"]').addClass('active');
 	}
 }
 

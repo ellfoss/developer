@@ -13,7 +13,12 @@ foreach ($dirs as $dir) {
 			$image = $path . $dir . DIRSEP . 'work.jpg';
 			if (file_exists($image)) $works[$dir]->image = '/portfolio/' . $dir . '/work.jpg';
 			else $works[$dir]->image = '../img/work.jpg';
-			if($works[$dir]->type == 'page') $works[$dir]->link = '/portfolio/' . $dir . '/';
+			if ($works[$dir]->type == 'page') $works[$dir]->link = '/portfolio/' . $dir . '/';
+			$data_year = array();
+			foreach ($works as $key => $arr) {
+				$data_year[$key] = $arr->date;
+			}
+			array_multisort($data_year, SORT_DESC, $works);
 		}
 	}
 }
