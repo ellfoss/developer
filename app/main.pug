@@ -1,89 +1,92 @@
 doctype html
 html(lang='ru')
-	head
-		title Кашников Денис | Веб-разработчик
-		meta(charset='utf-8')
-		meta(name='viewport' content='width=device-width,initial-scale=1.0')
-		link(rel="icon" href="favicon.ico")
-		link(type='text/css' rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css")
-		link(type='text/css' rel='stylesheet' href='/css/style.css')
-	body
-		header
-			.name
-				a.image(href='https://vk.com/ellfoss' target='_blank')
-					img(src='/img/photo.jpg')
-				.text
-					.main-name Кашников Денис
-					.under-name Веб-разработчик
-			.menu
-				.menu-item.active(menu='resume') Резюме
-				.menu-item(menu='contacts') Контакты
-				.menu-item(menu='portfolio') Портфолио
-		.main
-			.wrapper
-				.sheet.active(name='main')
-					.image
-						img(src='img/tv.png')
-					.sheet-text
-						.sheet-text-wrapper
-							.resume.view.active(name='resume')
-								a#resume
-								.resume-text
-									.text-header Резюме
-									p Приветствую!
-									p Я занимаюсь web-разработкой с 2011 года. Всё начиналось с любительских проектов "для себя", поэтому необходимые навыки росли очень медленно. С 2016 года я решил перевести своё увлечение из разряда хобби в источник дохода и активно взялся за самообучение. На данный момент у меня имеются следующие навыки:
-									ul
-										li
-											img(src='/img/html5.png')
-											span HTML5 (pug)
-										li
-											img(src='/img/css3.png')
-											span CSS3 (less, stylus)
-										li
-											img(src='/img/js.png')
-											span Javascript (+jQuery)
-										li
-											img(src='/img/php.png')
-											span PHP5 (ООП)
-										li
-											img(src='/img/mysql.png')
-											span MySQL
-										li
-											img(src='/img/node.png')
-											span Node.js (+Gulp)
-										li
-											img(src='/img/github.png')
-											span GitHub
+    head
+        title Кашников Денис | Веб-разработчик
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width,initial-scale=1.0')
+        link(rel="icon" href="favicon.ico")
+        link(type='text/css' rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/smoothness/jquery-ui.css")
+        link(type='text/css' rel='stylesheet' href='/css/style.css')
+    body
+        header
+            .name
+                a.image(href='https://vk.com/ellfoss' target='_blank')
+                    img(src='/img/photo.jpg')
+                .text
+                    .main-name Кашников Денис
+                    .under-name Веб-разработчик
+            .menu
+                .menu-item.active(menu='resume') Резюме
+                .menu-item(menu='contacts') Контакты
+                .menu-item(menu='portfolio') Портфолио
+        .main
+            .wrapper
+                .sheet.active(name='main')
+                    .image
+                        img(src='img/tv.png')
+                    .sheet-text
+                        .sheet-text-wrapper
+                            .resume.view.active(name='resume')
+                                a#resume
+                                .resume-text
+                                    .text-header Резюме
+                                    p Приветствую!
+                                    p Я занимаюсь web-разработкой с 2011 года. Всё начиналось с любительских проектов "для себя", поэтому необходимые навыки росли очень медленно. С 2016 года я решил перевести своё увлечение из разряда хобби в источник дохода и активно взялся за самообучение. На данный момент у меня имеются следующие навыки:
+                                    ul
+                                        li
+                                            img(src='/img/html5.png')
+                                            span HTML5 (pug)
+                                        li
+                                            img(src='/img/css3.png')
+                                            span CSS3 (less, stylus)
+                                        li
+                                            img(src='/img/js.png')
+                                            span Javascript (jQuery, Typescript)
+                                        li
+                                            img(src='/img/angular.png')
+                                            span Angular 2
+                                        li
+                                            img(src='/img/php.png')
+                                            span PHP5
+                                        li
+                                            img(src='/img/mysql.png')
+                                            span MySQL
+                                        li
+                                            img(src='/img/node.png')
+                                            span Node.js (+Gulp)
+                                        li
+                                            img(src='/img/github.png')
+                                            span GitHub
 
-							.contacts.view(name='contacts')
-								a#contacts
-								.contacts-wrapper
-									.text-header Контакты
-									.items
-										.vk
-											a(href='https://vk.com/ellfoss' target='_blank')
-												img(src="/img/vk.png")
-											.contact-text Кашников Денис
-										.e-mail
-											a(href='mailto:ellfoss43@gmail.com')
-												img(src="/img/gmail.png")
-											.contact-text ellfoss43@gmail.com
-										.skype
-											a(href='skype:ellfoss')
-												img(src="/img/skype.png")
-											.contact-text ellfoss
-										.github
-											a(href='https://github.com/ellfoss' target='_blank')
-												img(src="/img/github.png")
-											.contact-text ellfoss
+                            .contacts.view(name='contacts')
+                                a#contacts
+                                .contacts-wrapper
+                                    .text-header Контакты
+                                    .items
+                                        .vk
+                                            a(href='https://vk.com/ellfoss' target='_blank')
+                                                img(src="/img/vk.png")
+                                            .contact-text Кашников Денис
+                                        .e-mail
+                                            a(href='mailto:ellfoss43@gmail.com')
+                                                img(src="/img/gmail.png")
+                                            .contact-text ellfoss43@gmail.com
+                                        .skype
+                                            a(href='skype:ellfoss')
+                                                img(src="/img/skype.png")
+                                            .contact-text ellfoss
+                                        .github
+                                            a(href='https://github.com/ellfoss' target='_blank')
+                                                img(src="/img/github.png")
+                                            .contact-text ellfoss
 
-				.sheet(name='portfolio')
-					.portfolio
-						a#portfolio
-						.text-header Портфолио
-						.portfolio_works
-						a.portfolio_other(href='/portfolio/') Остальные работы
+                .sheet(name='portfolio')
+                    .portfolio
+                        a#portfolio
+                        .text-header Портфолио
+                        .portfolio_works
+                        a.portfolio_other(href='/portfolio/') Остальные работы
 
-		script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
-		script(type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js")
-		script(type='text/javascript' src='/scripts/main.js')
+        script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+        script(type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js")
+        script(type='text/javascript' src='/scripts/main.js')
